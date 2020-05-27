@@ -7,7 +7,7 @@ const ContainerCarrinho = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 20vw;
-  height: 100vh;
+  height: 40vh;
   border: 1px solid black;
   color: black;
 `;
@@ -17,6 +17,7 @@ class Carrinho extends React.Component {
     return (
       <ContainerCarrinho>
         <h1>{this.props.nomeCarrinho}</h1>
+        <button>Ir para carrinho</button>
       </ContainerCarrinho>
     );
   }
