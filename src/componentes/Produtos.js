@@ -18,12 +18,12 @@ class Produtos extends React.Component {
 
     return (
       <div className="App-container">
-          <ContainerProduto>
-                <img src={this.props.fotoProduto} alt={"Imagem do Produto"}/>
-                <p>{this.props.nomeProduto}</p>
-                <p>{this.props.valorProduto}</p>
-                <button>Adicionar ao carrinho</button>
-          </ContainerProduto>
+        <ContainerProduto>
+          <img src={this.props.fotoProduto} alt={"Imagem do Produto"}/>
+          <p>{this.props.nomeProduto}</p>
+          <p>{this.props.valorProduto}</p>
+          <button>Adicionar ao carrinho</button>
+        </ContainerProduto>
       </div>
     );
   }
