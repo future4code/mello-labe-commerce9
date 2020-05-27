@@ -1,6 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Produtos from './componentes/Produtos';
+import React from "react";
+import styled from "styled-components";
+import Produtos from "./componentes/Produtos";
+import Filtros from "./componentes/Filtros";
+import Carrinho from "./componentes/Carrinho";
 
 const AppProdutos = styled.div `
   display: flex;
