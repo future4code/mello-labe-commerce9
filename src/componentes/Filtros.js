@@ -23,6 +23,7 @@ class Filtros extends React.Component {
         <input type="number" min="0" name="valorMaximo"></input>
         <label>Buscar Produto</label>
         <input type="text"></input>
+        <button>Filtrar</button>
       </ContainerFiltros>
     );
   }

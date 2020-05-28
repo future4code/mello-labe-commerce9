@@ -12,6 +12,10 @@ const AppProdutos = styled.div `
   height: 800px;
   padding: 10px;
 `
+const Container = styled.div `
+  display: flex;
+  flex-direction: row;
+`
 
 class App extends React.Component {
     state = {
@@ -76,17 +80,19 @@ class App extends React.Component {
             nomeProduto={produto.nome}
             valorProduto={produto.valor}
             fotoProduto={produto.foto}
-          />
+          />         
         </div>
       )
     })
 
     return (
-      <div className="app-container">
+      <Container>
+        <Filtros />
         <AppProdutos>
           {listaRenderizada}
         </AppProdutos>
-      </div>
+        <Carrinho />
+      </ Container>
     );
   }
 }
