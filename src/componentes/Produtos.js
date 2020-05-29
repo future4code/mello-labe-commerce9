@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ContainerProduto = styled.div `
   display: flex;
@@ -14,10 +14,9 @@ const ContainerProduto = styled.div `
   padding: 3px;
 `
 
+
 class Produtos extends React.Component {
-
-  render () {
-
+  render() {
     return (
       <div className="App-container">
         <ContainerProduto>

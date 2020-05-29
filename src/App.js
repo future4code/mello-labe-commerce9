@@ -1,8 +1,11 @@
+
 import React from 'react';
 import styled from 'styled-components';
 import Produtos from './componentes/Produtos';
 import CarrinhoDeCompras from './componentes/CarrinhoDeCompras';
 import carrinho from "./imagens/carrinho1.jpg";
+import Filtros from "./componentes/Filtros";
+import Carrinho from "./componentes/Carrinho";
 
 const AppContainer = styled.div `
   display: flex;
@@ -32,6 +35,10 @@ const ContainerProdutos = styled.div `
   width: 98%;
   height: 740px;
   padding: 10px;
+`
+const Container = styled.div `
+  display: flex;
+  flex-direction: row;
 `
 
 const ContainerCarrinho = styled.div `
@@ -151,12 +158,14 @@ class App extends React.Component {
 
     listaFiltrada = listaFiltrada.map(produto => {
       return (
-        <Produtos
-          key={produto.id}
-          nomeProduto={produto.nome}
-          valorProduto={produto.valor}
-          fotoProduto={produto.foto}
-        />
+        <div>
+          <Produtos
+            key={produto.id}
+            nomeProduto={produto.nome}
+            valorProduto={produto.valor}
+            fotoProduto={produto.foto}
+          />         
+        </div>
       )
     }); 
 
@@ -193,6 +202,15 @@ class App extends React.Component {
           <Imagem src={carrinho} onClick={this.acessaCarrinho}></Imagem>
         </ContainerCarrinho>
         
+//         Abaixo, o que estava na master dando conflito com a branch. Não sabia se era importante, por isso mantive aquu
+//         Se não for importante, é só tirar até o componente  </ Container>
+        <Container>
+          <Filtros />
+          <AppProdutos>
+            {listaRenderizada}
+          </AppProdutos>
+          <Carrinho />
+        </ Container>
       </AppContainer>
     );
   }
