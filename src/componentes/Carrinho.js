@@ -1,16 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components"
 
-const ContainerCarrinho = styled.div`
+const GridCarrinho = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 20vw;
-  height: 40vh;
-  border: 1px solid black;
-  color: black;
-`;
+  background-color: #8b008b;
+  color: white;
+  `; 
 
 class Carrinho extends React.Component {
   render() {
@@ -37,22 +32,19 @@ class Carrinho extends React.Component {
         {produto.quantidade}
         {produto.nome}
         <button onClick={() => this.props.removeCarrinho(produto.id)}>
-          Deletar Produto
+          Excluir Produto
         </button>
       </p>
     ));
     return (
       <div>
+        <GridCarrinho>
         {carrinhoRenderizado}
-        <p>{total}</p>
+        <h3>TOTAL R$: {total}</h3>
+        </GridCarrinho>
       </div>
     );
   }
 }
 
 export default Carrinho;
-
-/*<ContainerCarrinho>
-        <h1>{this.props.nomeCarrinho}</h1>
-        <button>Ir para carrinho</button>
-      </ContainerCarrinho>*/

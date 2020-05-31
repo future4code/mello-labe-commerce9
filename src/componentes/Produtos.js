@@ -10,12 +10,10 @@ const ContainerProduto = styled.div`
   height: 340px;
   border: none;
   color: white;
-  background-color: #7b68ee;
-  padding: 3px;
-`;
+ `;
 
 class Produtos extends React.Component {
-  state = {
+  sstate = {
     listaDeProdutos: [
       {
         id: 1,
@@ -29,7 +27,51 @@ class Produtos extends React.Component {
         valor: 297.5,
         foto: "https://picsum.photos/260/200?a=2",
       },
+      {
+        id: 3,
+        nome: "Caneca Nasa",
+        valor: 110.9,
+        foto: "https://picsum.photos/260/200?a=3",
+      },
+      {
+        id: 4,
+        nome: "Camiseta SpaceX",
+        valor: 119.5,
+        foto: "https://picsum.photos/260/200?a=4",
+      },
+      {
+        id: 5,
+        nome: "Miniatura Starship",
+        valor: 597.9,
+        foto: "https://picsum.photos/260/200?a=5",
+      },
+      {
+        id: 6,
+        nome: "Miniatura Crew Dragon",
+        valor: 805.9,
+        foto: "https://picsum.photos/260/200?a=6",
+      },
+      {
+        id: 7,
+        nome: "Mochila Blue Origin",
+        valor: 85.5,
+        foto: "https://picsum.photos/260/200?a=7",
+      },
+      {
+        id: 8,
+        nome: "Boné Blue Origin",
+        valor: 55.5,
+        foto: "https://picsum.photos/260/200?a=8",
+      },
     ],
+    carrinho: [],
+
+    inputValorMinimo: "",
+    inputValorMaximo: "",
+    inputBuscarProduto: "",
+    filtroSelecionado: "Crescente",
+
+    carrinhoDeCompras: false,
   };
 
   selecaoDeProduto = (id) => {
