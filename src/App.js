@@ -1,24 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 import Produtos from "./componentes/Produtos";
-import CarrinhoDeCompras from "./componentes/CarrinhoDeCompras";
-import carrinho from "./imagens/carrinho1.jpg";
-import Filtros from "./componentes/Filtros";
 import Carrinho from "./componentes/Carrinho";
 
 const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-column: repeat(4,1fr);
+  grid-row: repeat(4,1fr);
 `;
 
 const Header = styled.div`
-  width: 97.7%;
+  grid-column: 1/3;
+  grid-row: 1;
+  width: 110%;
   height: 200px;
-  padding-left: 30px;
+  padding-left: 20px;
   color: white;
   background-color: #8b008b;
 `;
+
+const ContainerSelect = styled.div`
+  grid-column: 2/4;
+  grid-row: 1;
+  width: 100%;
+  height: 200px;
+  color: white;
+  background-color: #8b008b;
+  justify-content: center;
+  `;
 
 const InputFiltros = styled.input`
   padding: 3px;
@@ -27,37 +36,15 @@ const InputFiltros = styled.input`
 `;
 
 const ContainerProdutos = styled.div`
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
   justify-content: space-around;
   margin: auto;
-  width: 98%;
+  width: 120%;
   height: 740px;
   padding: 10px;
-`;
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const ContainerCarrinho = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  position: fixed;
-  margin-top: 560px;
-`;
-
-const Imagem = styled.img`
-  height: 80px;
-  width: 80px;
-  margin-right: 20px;
-  border-radius: 50px;
-`;
-const ContainerSelect = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  height: 2vh;
+  background-color: #054F77;
 `;
 
 class App extends React.Component {
@@ -213,6 +200,7 @@ class App extends React.Component {
     });
 
     return (
+      <>
       <AppContainer>
         <Header>
           <h1>Loja Space</h1>
@@ -234,8 +222,13 @@ class App extends React.Component {
             value={this.state.inputBuscarProduto}
             onChange={this.onChangeBuscarProduto}
           />
-          <ContainerSelect>
-            <label>Quantidade de produtos: 6 >> </label>
+          <hr></hr>
+        </Header>
+        <ContainerSelect>
+          <br></br>
+          <br></br>
+          <br></br>
+            <label>Exibição:</label>
             <select
               value={this.state.filtroSelecionado}
               onChange={this.alteraFiltro}
@@ -243,21 +236,19 @@ class App extends React.Component {
               <option value="Crescente">Preço crescente</option>
               <option value="Decrescente">Preço decrescente</option>
             </select>
+          
           </ContainerSelect>
-        </Header>
-
         <ContainerProdutos>
           {listaFiltrada}
-          <Carrinho
-            listaCarrinho={this.state.carrinho}
-            removeCarrinho={this.removerDoCarrinho}
-          />
+         
         </ContainerProdutos>
-
-        <ContainerCarrinho>
-          <Imagem src={carrinho} onClick={this.acessaCarrinho}></Imagem>
-        </ContainerCarrinho>
+             
       </AppContainer>
+      <Carrinho
+      listaCarrinho={this.state.carrinho}
+      removeCarrinho={this.removerDoCarrinho}
+    /> 
+    </>
     );
   }
 }
