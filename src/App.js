@@ -112,6 +112,7 @@ class App extends React.Component {
         foto: "https://picsum.photos/260/200?a=8",
       },
     ],
+    carrinho: [],
 
     inputValorMinimo: "",
     inputValorMaximo: "",
@@ -119,6 +120,19 @@ class App extends React.Component {
     filtroSelecionado: "Crescente",
 
     carrinhoDeCompras: false,
+  };
+
+  adicionarCarrinho = (produto) => {
+    const novoCarrinho = [...this.state.carrinho, produto];
+    this.setState({ carrinho: novoCarrinho });
+    console.log(novoCarrinho);
+  };
+
+  removerDoCarrinho = (id) => {
+    const novoCarrinho = this.state.carrinho.filter(
+      (produto) => produto.id !== id
+    );
+    this.setState({ carrinho: novoCarrinho });
   };
 
   compararNumeros = (a, b) => {
@@ -178,7 +192,9 @@ class App extends React.Component {
 
     if (this.state.inputBuscarProduto) {
       listaFiltrada = listaFiltrada.filter((produto) => {
-        return produto.nome.toUpperCase() === this.state.inputBuscarProduto;
+        return produto.nome
+          .toUpperCase()
+          .includes(this.state.inputBuscarProduto);
       });
     }
 
@@ -190,6 +206,7 @@ class App extends React.Component {
             nomeProduto={produto.nome}
             valorProduto={produto.valor}
             fotoProduto={produto.foto}
+            funcaoAdicionar={() => this.adicionarCarrinho(produto)}
           />
         </div>
       );
@@ -229,7 +246,13 @@ class App extends React.Component {
           </ContainerSelect>
         </Header>
 
-        <ContainerProdutos>{listaFiltrada}</ContainerProdutos>
+        <ContainerProdutos>
+          {listaFiltrada}
+          <Carrinho
+            listaCarrinho={this.state.carrinho}
+            removeCarrinho={this.removerDoCarrinho}
+          />
+        </ContainerProdutos>
 
         <ContainerCarrinho>
           <Imagem src={carrinho} onClick={this.acessaCarrinho}></Imagem>
