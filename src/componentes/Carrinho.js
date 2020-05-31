@@ -1,11 +1,12 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const GridCarrinho = styled.div`
   display: flex;
   background-color: #8b008b;
   color: white;
-  `; 
+  justify-content: space-evenly;
+`;
 
 class Carrinho extends React.Component {
   render() {
@@ -29,8 +30,9 @@ class Carrinho extends React.Component {
     });
     const carrinhoRenderizado = novoCarrinho.map((produto) => (
       <p>
-        {produto.quantidade}
+        {produto.quantidade}&nbsp;
         {produto.nome}
+        <br></br>
         <button onClick={() => this.props.removeCarrinho(produto.id)}>
           Excluir Produto
         </button>
@@ -39,8 +41,8 @@ class Carrinho extends React.Component {
     return (
       <div>
         <GridCarrinho>
-        {carrinhoRenderizado}
-        <h3>TOTAL R$: {total}</h3>
+          {carrinhoRenderizado}
+          <h3>TOTAL R$: {total}</h3>
         </GridCarrinho>
       </div>
     );
