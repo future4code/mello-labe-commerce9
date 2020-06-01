@@ -5,8 +5,8 @@ import Carrinho from "./componentes/Carrinho";
 
 const AppContainer = styled.div`
   display: grid;
-  grid-column: repeat(4,1fr);
-  grid-row: repeat(4,1fr);
+  grid-column: repeat(4, 1fr);
+  grid-row: repeat(4, 1fr);
 `;
 
 const Header = styled.div`
@@ -27,7 +27,7 @@ const ContainerSelect = styled.div`
   color: white;
   background-color: #8b008b;
   justify-content: center;
-  `;
+`;
 
 const InputFiltros = styled.input`
   padding: 3px;
@@ -44,7 +44,7 @@ const ContainerProdutos = styled.div`
   width: 120%;
   height: 740px;
   padding: 10px;
-  background-color: #054F77;
+  background-color: #054f77;
 `;
 
 class App extends React.Component {
@@ -201,33 +201,33 @@ class App extends React.Component {
 
     return (
       <>
-      <AppContainer>
-        <Header>
-          <h1>Loja Space</h1>
-          <h3>Filtros:</h3>
-          <label>Valor Mínimo</label>
-          <InputFiltros
-            type={"number"}
-            value={this.state.inputValorMinimo}
-            onChange={this.onChangeValorMinimo}
-          />
-          <label>Valor Máximo</label>
-          <InputFiltros
-            type={"number"}
-            value={this.state.inputValorMaximo}
-            onChange={this.onChangeValorMaximo}
-          />
-          <label>Buscar Produto</label>
-          <InputFiltros
-            value={this.state.inputBuscarProduto}
-            onChange={this.onChangeBuscarProduto}
-          />
-          <hr></hr>
-        </Header>
-        <ContainerSelect>
-          <br></br>
-          <br></br>
-          <br></br>
+        <AppContainer>
+          <Header>
+            <h1>Loja Space</h1>
+            <h3>Filtros:</h3>
+            <label>Valor Mínimo</label>
+            <InputFiltros
+              type={"number"}
+              value={this.state.inputValorMinimo}
+              onChange={this.onChangeValorMinimo}
+            />
+            <label>Valor Máximo</label>
+            <InputFiltros
+              type={"number"}
+              value={this.state.inputValorMaximo}
+              onChange={this.onChangeValorMaximo}
+            />
+            <label>Buscar Produto</label>
+            <InputFiltros
+              value={this.state.inputBuscarProduto}
+              onChange={this.onChangeBuscarProduto}
+            />
+            <hr></hr>
+          </Header>
+          <ContainerSelect>
+            <br></br>
+            <br></br>
+            <br></br>
             <label>Exibição:</label>
             <select
               value={this.state.filtroSelecionado}
@@ -236,19 +236,14 @@ class App extends React.Component {
               <option value="Crescente">Preço crescente</option>
               <option value="Decrescente">Preço decrescente</option>
             </select>
-          
           </ContainerSelect>
-        <ContainerProdutos>
-          {listaFiltrada}
-         
-        </ContainerProdutos>
-             
-      </AppContainer>
-      <Carrinho
-      listaCarrinho={this.state.carrinho}
-      removeCarrinho={this.removerDoCarrinho}
-    /> 
-    </>
+          <ContainerProdutos>{listaFiltrada}</ContainerProdutos>
+        </AppContainer>
+        <Carrinho
+          listaCarrinho={this.state.carrinho}
+          removeCarrinho={this.removerDoCarrinho}
+        />
+      </>
     );
   }
 }
